@@ -1,4 +1,5 @@
 package com.thinkxfactor.zomatoplus.controller;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,36 +9,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.thinkxfactor.zomatoplus.models.Restaurant;
 import com.thinkxfactor.zomatoplus.models.User;
-import com.thinkxfactor.zomatoplus.repo.UserRepository;
-
+import com.thinkxfactor.zomatoplus.repo.RestaurantRepository;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/restaurant")
+public class RestaurantController {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private RestaurantRepository restaurantRepository;
 	
 	@PostMapping("/add")
-	public User adduser(@RequestBody User user)
+	public Restaurant addrestaurant(@RequestBody Restaurant restaurant)
 	{
-		User persistedUser=userRepository.save(user);
-		return persistedUser;
+		Restaurant persistedRestaurant=restaurantRepository.save(restaurant);
+		return persistedRestaurant;
 	}
-	@GetMapping("/getAll")
-	public List<User> getAll() {
-		
-		List<User> users=userRepository.findAll();
-		return users;
-	}
+     
 	
-	@PostMapping("/Login")
-	public User Login(@RequestBody User user )
-	{
-	    
-		 User persistedUser=userRepository.findByNameAndPassword(user.getName(),user.getPassword());
-		 return persistedUser; 
-   	}
-}
+	@GetMapping("/getAll")
+	public List<Restaurant> getAll() {
 		
+		List<Restaurant> restaurant =restaurantRepository.findAll();
+		return restaurant;
+	}
+}

@@ -1,0 +1,6 @@
+06-27 15:37:01 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "TBL_USER" not found; SQL statement:
+select * from tbl_user [42102-156]
+06-27 15:38:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TBL_USER" not found; SQL statement:
+select user0_.id as id1_2_0_, user0_.address as address2_2_0_, user0_.landmark as landmark3_2_0_, user0_.mobile as mobile4_2_0_, user0_.name as name5_2_0_, user0_.password as password6_2_0_, user0_.pincode as pincode7_2_0_, user0_.type as type8_2_0_ from tbl_user user0_ where user0_.id=? [42102-156]
